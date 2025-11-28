@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Transaction {
     private int id;
+    private int accountId;
     private String description;
     private double amount;
     private String category;
@@ -27,12 +28,30 @@ public class Transaction {
         this.type = type;
     }
 
+    public Transaction(int id, int accountId, String description, double amount, String category, LocalDate date, String type) {
+        this.id = id;
+        this.accountId = accountId;
+        this.description = description;
+        this.amount = amount;
+        this.category = category;
+        this.date = date;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public String getDescription() {
@@ -73,5 +92,10 @@ public class Transaction {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    // Returns signed amount (negative for expenses, positive for income)
+    public double getSignedAmount() {
+        return "expense".equals(type) ? -amount : amount;
     }
 }
