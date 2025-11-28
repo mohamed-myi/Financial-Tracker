@@ -1,5 +1,7 @@
 package com.financialtracker;
 
+import com.financialtracker.util.DirectorySetup;
+import com.financialtracker.config.DatabaseConfig;
 import javax.swing.*;
 
 public class FinancialTracker {
@@ -8,6 +10,9 @@ public class FinancialTracker {
     private static final int WINDOW_HEIGHT = 600;
 
     public static void main(String[] args) {
+        DirectorySetup.setupDirectories();
+        DatabaseConfig.initializeDatabaseDirectory();
+
         SwingUtilities.invokeLater(() -> {
             JFrame frame = createMainWindow();
             frame.setVisible(true);
@@ -15,7 +20,6 @@ public class FinancialTracker {
     }
 
     private static JFrame createMainWindow() {
-        // Create main application window
         JFrame frame = new JFrame(APP_TITLE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
