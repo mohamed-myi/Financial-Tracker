@@ -4,12 +4,12 @@ import java.time.LocalDate;
 
 public class Transaction {
     private int id;
-    private int accountId;
     private String description;
     private double amount;
     private String category;
     private LocalDate date;
     private String type; // "income" or "expense"
+    private int accountId;
 
     public Transaction(String description, double amount, String category, LocalDate date, String type) {
         this.description = description;
@@ -92,10 +92,5 @@ public class Transaction {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    // Returns signed amount (negative for expenses, positive for income)
-    public double getSignedAmount() {
-        return "expense".equals(type) ? -amount : amount;
     }
 }
