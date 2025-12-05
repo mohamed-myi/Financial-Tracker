@@ -9,6 +9,7 @@ public class Transaction {
     private String category;
     private LocalDate date;
     private String type; // "income" or "expense"
+    private int accountId;
 
     public Transaction(String description, double amount, String category, LocalDate date, String type) {
         this.description = description;
@@ -27,12 +28,30 @@ public class Transaction {
         this.type = type;
     }
 
+    public Transaction(int id, int accountId, String description, double amount, String category, LocalDate date, String type) {
+        this.id = id;
+        this.accountId = accountId;
+        this.description = description;
+        this.amount = amount;
+        this.category = category;
+        this.date = date;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public String getDescription() {
